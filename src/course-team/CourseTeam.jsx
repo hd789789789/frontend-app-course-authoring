@@ -18,8 +18,12 @@ import AddUserForm from './add-user-form/AddUserForm';
 import AddTeamMember from './add-team-member/AddTeamMember';
 import CourseTeamMember from './course-team-member/CourseTeamMember';
 import InfoModal from './info-modal/InfoModal';
+<<<<<<< HEAD
 import { useCourseTeam } from './hooks';
 import { useUserPermissions } from '../generic/hooks';
+=======
+import { useCourseTeam, useUserPermissions } from './hooks';
+>>>>>>> f9a128c... [ROLES-26] Helper function for ingesting permission data (#670)
 import getPageHeadTitle from '../generic/utils';
 
 const CourseTeam = ({ courseId }) => {
@@ -57,10 +61,17 @@ const CourseTeam = ({ courseId }) => {
   } = useCourseTeam({ intl, courseId });
 
   const {
+<<<<<<< HEAD
     checkPermission,
   } = useUserPermissions();
 
   const hasManageAllUsersPerm = checkPermission('manage_all_users');
+=======
+    hasPermissions,
+  } = useUserPermissions();
+
+  const hasManageAllUsersPerm = hasPermissions('manage_all_users');
+>>>>>>> f9a128c... [ROLES-26] Helper function for ingesting permission data (#670)
 
   if (isLoading) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
