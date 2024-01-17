@@ -12,7 +12,7 @@ import {
 import { LICENSE_TYPE } from '../constants';
 import messages from './messages';
 
-const LicenseSelector = ({ licenseType, onChangeLicenseType }) => {
+const LicenseSelector = ({ licenseType, onChangeLicenseType, isEditable }) => {
   const LICENSE_BUTTON_GROUP_LABELS = {
     [LICENSE_TYPE.allRightsReserved]: {
       label: <FormattedMessage {...messages.licenseChoice1} />,
@@ -37,6 +37,7 @@ const LicenseSelector = ({ licenseType, onChangeLicenseType }) => {
         <Button
           variant={isActive ? 'primary' : 'outline-primary'}
           onClick={() => onChangeLicenseType(type, 'license')}
+          disabled={!isEditable}
         >
           {LICENSE_BUTTON_GROUP_LABELS[type].label}
         </Button>

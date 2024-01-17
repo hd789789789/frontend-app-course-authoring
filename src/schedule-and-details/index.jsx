@@ -42,6 +42,9 @@ import LicenseSection from './license-section';
 import ScheduleSidebar from './schedule-sidebar';
 import messages from './messages';
 import { useSaveValuesPrompt } from './hooks';
+import { useUserPermissions } from '../generic/hooks';
+import { getUserPermissionsEnabled } from '../generic/data/selectors';
+import PermissionDeniedAlert from '../generic/PermissionDeniedAlert';
 
 const ScheduleAndDetails = ({ intl, courseId }) => {
   const courseSettings = useSelector(getCourseSettings);
@@ -52,6 +55,12 @@ const ScheduleAndDetails = ({ intl, courseId }) => {
     || loadingSettingsStatus === RequestStatus.IN_PROGRESS;
 
   const course = useModel('courseDetails', courseId);
+  const { checkPermission } = useUserPermissions();
+  const userPermissionsEnabled = useSelector(getUserPermissionsEnabled);
+  const showPermissionDeniedAlert = userPermissionsEnabled && (
+    !checkPermission('manage_course_settings') && !checkPermission('view_course_settings')
+  );
+  const canEdit = (!userPermissionsEnabled) ? true : checkPermission('manage_course_settings');
   document.title = getPageHeadTitle(course?.name, intl.formatMessage(messages.headingTitle));
 
   const {
@@ -139,6 +148,12 @@ const ScheduleAndDetails = ({ intl, courseId }) => {
   if (isLoading) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>;
+  }
+
+  if (showPermissionDeniedAlert) {
+    return (
+      <PermissionDeniedAlert />
+    );
   }
 
   if (loadingDetailsStatus === RequestStatus.DENIED || loadingSettingsStatus === RequestStatus.DENIED) {
@@ -236,12 +251,14 @@ const ScheduleAndDetails = ({ intl, courseId }) => {
                     certificatesDisplayBehavior={certificatesDisplayBehavior}
                     canShowCertificateAvailableDateField={canShowCertificateAvailableDateField}
                     onChange={handleValuesChange}
+                    isEditable={canEdit}
                   />
                   {aboutPageEditable && (
                     <DetailsSection
                       language={language}
                       languageOptions={languageOptions}
                       onChange={handleValuesChange}
+                      isEditable={canEdit}
                     />
                   )}
                   <IntroducingSection
@@ -262,6 +279,7 @@ const ScheduleAndDetails = ({ intl, courseId }) => {
                     enableExtendedCourseDetails={enableExtendedCourseDetails}
                     videoThumbnailImageAssetPath={videoThumbnailImageAssetPath}
                     onChange={handleValuesChange}
+                    isEditable={canEdit}
                   />
                   {enableExtendedCourseDetails && (
                     <>
@@ -289,12 +307,14 @@ const ScheduleAndDetails = ({ intl, courseId }) => {
                         isPrerequisiteCoursesEnabled
                       }
                       onChange={handleValuesChange}
+                      isEditable={canEdit}
                     />
                   )}
                   {licensingEnabled && (
                     <LicenseSection
                       license={license}
                       onChange={handleValuesChange}
+                      isEditable={canEdit}
                     />
                   )}
                 </div>
