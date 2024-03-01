@@ -171,7 +171,7 @@ const StudioHome = ({ intl }) => {
           isQueryPending={anyQueryIsPending}
         />
       </div>
-      <StudioFooter />
+      {/* <StudioFooter /> */}
     </>
   );
 };
