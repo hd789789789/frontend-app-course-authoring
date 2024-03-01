@@ -83,7 +83,7 @@ const CourseAuthoringPage = ({ courseId, children }) => {
         )
         )}
       {children}
-      {!inProgress && !isEditor && <StudioFooter />}
+      {/* {!inProgress && !isEditor && <StudioFooter />}  */}
     </div>
   );
 };
