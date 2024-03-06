@@ -8,5 +8,86 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      setInterval(() => {
+          [
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(1) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Progress',
+                  replacement: 'Tiến trình học',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(1) > div > div.pgn__card-body > div',
+                  content: 'Keep learners engaged and on track throughout the course.',
+                  replacement: 'Giữ người học tham gia và đi đúng hướng trong suốt khóa học.',
+              },
+
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(2) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Discussion',
+                  replacement: 'Tiến trình học',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(2) > div > div.pgn__card-body > div',
+                  content: 'Encourage participation and engagement in your course with discussions.',
+                  replacement: 'Giữ người học tham gia và đi đúng hướng trong suốt khóa học.',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(3) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Wiki',
+                  replacement: 'Wiki',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(3) > div > div.pgn__card-body > div',
+                  content: 'Enable learners to access, and collaborate on course-related information.',
+                  replacement: 'Cho phép người học truy cập và cộng tác trên các thông tin liên quan đến khóa học.',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(4) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Calculator',
+                  replacement: 'Máy tính',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(4) > div > div.pgn__card-body > div',
+                  content: 'Provide an in-course calculator for simple and complex calculations.',
+                  replacement: 'Cung cấp máy tính trong khóa học để thực hiện các phép tính đơn giản và phức tạp.',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(5) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Textbooks',
+                  replacement: 'Giáo trình',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(5) > div > div.pgn__card-body > div',
+                  content: 'Create and manage a library of course readings, textbooks, and chapters..',
+                  replacement: 'Tạo và quản lý thư viện các bài đọc, giáo trình và các chương của khóa học.',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(6) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Custom pages',
+                  replacement: 'Trang tùy chỉnh',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(6) > div > div.pgn__card-body > div',
+                  content: 'Provide additional course content and resources with custom pages',
+                  replacement: 'Cung cấp nội dung và tài nguyên khóa học bổ sung với các trang tùy chỉnh',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(7) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
+                  content: 'Open Response Assessment Settings',
+                  replacement: 'Mở cài đặt đánh giá phản hồi',
+              },
+              {
+                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(7) > div > div.pgn__card-body > div',
+                  content: 'Course level settings for Open Response Assessment.',
+                  replacement: 'Cài đặt cấp độ khóa học cho đánh giá tự luận.',
+              },
+          ].forEach((item) => {
+              const element = document.querySelector(item.selector);
+              if (element && element.innerHTML.indexOf(item.content) != -1)
+                  element.innerHTML = element.innerHTML.replace(item.content, item.replacement);
+          });
+      }, 100);
+    </script>
   </body>
 </html>

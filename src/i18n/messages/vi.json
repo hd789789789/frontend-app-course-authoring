@@ -329,7 +329,7 @@
     "course-authoring.grading-settings.credit-eligibility.description": "Cài đặt cho credit đủ điều kiện cho khóa học",
     "course-authoring.grading-settings.grading-rules-policies.title": "Quy tắc và chính sách chấm điểm",
     "course-authoring.grading-settings.grading-rules-policies.description": "Thời hạn, yêu cầu và logistics liên quan đến việc chấm điểm bài tập của học viên",
-    "course-authoring.grading-settings.assignment-type.title": "Loại bài đánh giá",
+    "course-authoring.grading-settings.assignment-type.title": "",
     "course-authoring.grading-settings.assignment-type.description": "Danh mục và nhãn cho bất kỳ bài tập nào có thể phân loại được",
     "course-authoring.grading-settings.add-new-assignment-type.btn": "Loại bài tập mới",
     "course-authoring.page.title": "Tác giả khóa học | {siteName}",
@@ -479,7 +479,7 @@
     "authoring.discussions.discussionRestriction.help": "Nếu được bật, học viên sẽ không thể đăng bài trong các cuộc thảo luận.",
     "authoring.discussions.discussionRestrictionDates.help": "Nếu được thêm vào, học viên sẽ không thể đăng bài trong các cuộc thảo luận trong khoảng thời gian này.",
     "authoring.discussions.addRestrictedDatesButton": "Thêm ngày hạn chế",
-    "authoring.discussions.builtIn.configureRestrictedDates.label": "Cấu hình phạm vi ngày bị giới hạn",
+    "authoring.discussions.builtIn.configureRestrictedDates.label": "Cấu hình khoảng ngày bị giới hạn",
     "authoring.discussions.activeRestrictedDatesDeletion.label": "Xóa ngày hạn chế hoạt động?",
     "authoring.discussions.activeRestrictedDatesDeletion.help": "Những ngày hạn chế này hiện đang hoạt động. Nếu bị xóa, học viên sẽ có thể đăng bài trong các cuộc thảo luận trong những ngày này. Bạn có chắc chắn muốn tiếp tục không?",
     "authoring.discussions.completeRestrictedDatesDeletion.help": "Bạn có chắc chắn muốn xóa những ngày bị hạn chế này không?",
@@ -992,4 +992,4 @@
     "course-authoring.course-unit.sequence.navigation.menu": "{current} trong tổng số {total}",
     "course-authoring.course-unit.add.component.title": "Thêm thành phần mới",
     "course-authoring.course-unit.add.component.button.text": "Thêm thành phần:"
-}
+  }
