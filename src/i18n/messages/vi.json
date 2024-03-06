@@ -991,5 +991,6 @@
     "course-authoring.course-unit.sequence.no.content": "Không có nội dung ở đây.",
     "course-authoring.course-unit.sequence.navigation.menu": "{current} trong tổng số {total}",
     "course-authoring.course-unit.add.component.title": "Thêm thành phần mới",
-    "course-authoring.course-unit.add.component.button.text": "Thêm thành phần:"
+    "course-authoring.course-unit.add.component.button.text": "Thêm thành phần:",
+    "header.links.exportCourse":"Xuất khoá học"
   }
