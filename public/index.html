@@ -1,93 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-us">
-  <head>
-      <title>Course Authoring | <%= process.env.SITE_NAME %></title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="<%=htmlWebpackPlugin.options.FAVICON_URL%>" type="image/x-icon" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script>
-      setInterval(() => {
-          [
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(1) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Progress',
-                  replacement: 'Tiến trình học',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(1) > div > div.pgn__card-body > div',
-                  content: 'Keep learners engaged and on track throughout the course.',
-                  replacement: 'Giữ người học tham gia và đi đúng hướng trong suốt khóa học.',
-              },
+    <head>
+        <title>Course Authoring | <%= process.env.SITE_NAME %></title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="<%=htmlWebpackPlugin.options.FAVICON_URL%>" type="image/x-icon" />
+        <style>
+            .wrapper-footer {
+                padding: 25px 0;
+                border-top: 1px solid #e5e7eb;
+            }
+            footer.tutor-container {
+                margin: 0 auto;
+                padding: 0 15px;
+                max-width: 1090px;
+                text-align: center;
+                .footer-top {
+                    margin: 0 0 15px;
+                    &:after {
+                        clear: both;
+                        display: block;
+                        content: "";
+                    }
+                    .powered-area {
+                        margin: 0 0 10px;
+                    }
+                }
+                .logo-list {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    letter-spacing: -0.3em;
+                    li {
+                        display: inline-block;
+                        vertical-align: middle;
+                        padding: 0 5px;
+                        letter-spacing: normal;
+                        position: relative;
+                        font-size: 12px;
+                        line-height: 18px;
+                        color: #6b7280;
+                        &:first-child {
+                            padding-left: 0;
+                        }
+                        &:last-child {
+                            padding-left: 20px;
+                            &:after {
+                                position: absolute;
+                                left: 5px;
+                                top: 50%;
+                                content: "";
+                                width: 1px;
+                                height: 29px;
+                                margin: -14px 0 0;
+                                background: #6b7280;
+                            }
+                        }
+                    }
+                }
+                .nav-colophon {
+                    display: block;
+                    overflow: hidden;
+                    ol {
+                        text-align: center;
+                        li {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 0 8px;
+                            font-size: 14px;
+                            line-height: 20px;
+                            a {
+                                color: black;
+                                text-decoration: none;
+                                &:hover {
+                                    color: black;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+                .copyright-site {
+                    display: block;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: black;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            setInterval(() => {
+                [
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(1) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Progress",
+                        replacement: "Tiến trình học",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(1) > div > div.pgn__card-body > div",
+                        content: "Keep learners engaged and on track throughout the course.",
+                        replacement: "Giữ người học tham gia và đi đúng hướng trong suốt khóa học.",
+                    },
 
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(2) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Discussion',
-                  replacement: 'Tiến trình học',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(2) > div > div.pgn__card-body > div',
-                  content: 'Encourage participation and engagement in your course with discussions.',
-                  replacement: 'Giữ người học tham gia và đi đúng hướng trong suốt khóa học.',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(3) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Wiki',
-                  replacement: 'Wiki',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(3) > div > div.pgn__card-body > div',
-                  content: 'Enable learners to access, and collaborate on course-related information.',
-                  replacement: 'Cho phép người học truy cập và cộng tác trên các thông tin liên quan đến khóa học.',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(4) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Calculator',
-                  replacement: 'Máy tính',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(4) > div > div.pgn__card-body > div',
-                  content: 'Provide an in-course calculator for simple and complex calculations.',
-                  replacement: 'Cung cấp máy tính trong khóa học để thực hiện các phép tính đơn giản và phức tạp.',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(5) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Textbooks',
-                  replacement: 'Giáo trình',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(5) > div > div.pgn__card-body > div',
-                  content: 'Create and manage a library of course readings, textbooks, and chapters..',
-                  replacement: 'Tạo và quản lý thư viện các bài đọc, giáo trình và các chương của khóa học.',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(6) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Custom pages',
-                  replacement: 'Trang tùy chỉnh',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(6) > div > div.pgn__card-body > div',
-                  content: 'Provide additional course content and resources with custom pages',
-                  replacement: 'Cung cấp nội dung và tài nguyên khóa học bổ sung với các trang tùy chỉnh',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(7) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm',
-                  content: 'Open Response Assessment Settings',
-                  replacement: 'Mở cài đặt đánh giá phản hồi',
-              },
-              {
-                  selector: '#root > div > div > main > div.pgn__card-grid > div > div:nth-child(7) > div > div.pgn__card-body > div',
-                  content: 'Course level settings for Open Response Assessment.',
-                  replacement: 'Cài đặt cấp độ khóa học cho đánh giá tự luận.',
-              },
-          ].forEach((item) => {
-              const element = document.querySelector(item.selector);
-              if (element && element.innerHTML.indexOf(item.content) != -1)
-                  element.innerHTML = element.innerHTML.replace(item.content, item.replacement);
-          });
-      }, 100);
-    </script>
-  </body>
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(2) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Discussion",
+                        replacement: "Tiến trình học",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(2) > div > div.pgn__card-body > div",
+                        content: "Encourage participation and engagement in your course with discussions.",
+                        replacement: "Giữ người học tham gia và đi đúng hướng trong suốt khóa học.",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(3) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Wiki",
+                        replacement: "Wiki",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(3) > div > div.pgn__card-body > div",
+                        content: "Enable learners to access, and collaborate on course-related information.",
+                        replacement:
+                            "Cho phép người học truy cập và cộng tác trên các thông tin liên quan đến khóa học.",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(4) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Calculator",
+                        replacement: "Máy tính",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(4) > div > div.pgn__card-body > div",
+                        content: "Provide an in-course calculator for simple and complex calculations.",
+                        replacement:
+                            "Cung cấp máy tính trong khóa học để thực hiện các phép tính đơn giản và phức tạp.",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(5) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Textbooks",
+                        replacement: "Giáo trình",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(5) > div > div.pgn__card-body > div",
+                        content: "Create and manage a library of course readings, textbooks, and chapters..",
+                        replacement: "Tạo và quản lý thư viện các bài đọc, giáo trình và các chương của khóa học.",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(6) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Custom pages",
+                        replacement: "Trang tùy chỉnh",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(6) > div > div.pgn__card-body > div",
+                        content: "Provide additional course content and resources with custom pages",
+                        replacement: "Cung cấp nội dung và tài nguyên khóa học bổ sung với các trang tùy chỉnh",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(7) > div > div.pgn__card-header > div.pgn__card-header-content > div.pgn__card-header-title-sm",
+                        content: "Open Response Assessment Settings",
+                        replacement: "Mở cài đặt đánh giá phản hồi",
+                    },
+                    {
+                        selector:
+                            "#root > div > div > main > div.pgn__card-grid > div > div:nth-child(7) > div > div.pgn__card-body > div",
+                        content: "Course level settings for Open Response Assessment.",
+                        replacement: "Cài đặt cấp độ khóa học cho đánh giá tự luận.",
+                    },
+                ].forEach((item) => {
+                    const element = document.querySelector(item.selector);
+                    if (element && element.innerHTML.indexOf(item.content) != -1)
+                        element.innerHTML = element.innerHTML.replace(item.content, item.replacement);
+                });
+            }, 100);
+        </script>
+    </body>
+    <div class="wrapper wrapper-footer" style="font-size: 12px">
+        <footer id="footer" class="tutor-container">
+            <div class="footer-top">
+                <nav class="nav-colophon">
+                    <ol>
+                        <li style="font-size: 12px">
+                            <a href="/about">Về chúng tôi</a>
+                        </li>
+
+                        <li style="font-size: 12px">
+                            <a href="/blog">Blog</a>
+                        </li>
+
+                        <li style="font-size: 12px">
+                            <a href="/donate">Ủng hộ</a>
+                        </li>
+
+                        <li style="font-size: 12px">
+                            <a href="/tos">Điều khoản dịch vụ</a>
+                        </li>
+
+                        <li style="font-size: 12px">
+                            <a href="/privacy">Chính sách bảo mật</a>
+                        </li>
+
+                        <li style="font-size: 12px">
+                            <a href="/help">Trợ giúp</a>
+                        </li>
+
+                        <li style="font-size: 12px">
+                            <a href="/contact">Liên hệ</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <span class="copyright-site">(c) Hoctap.vn - Powered by Tutor | OpenEdX</span>
+        </footer>
+    </div>
 </html>
